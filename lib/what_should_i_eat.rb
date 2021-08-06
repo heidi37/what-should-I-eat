@@ -1,12 +1,17 @@
 # frozen_string_literal: true
 
 require_relative "what_should_i_eat/version"
-require_relative "what_should_i_eat/printing" 
-require 'http'
+require_relative "what_should_i_eat/printing"
+require_relative "what_should_i_eat/get_data"
+
 
 module WhatShouldIEat
   class Error < StandardError; end
   # Your code goes here...
-  result = HTTP.get('https://www.edamam.com/search?type=Feeds').to_s
-  recipes = JSON.parse(result)
+  def self.run
+    recipe = GetData.get
+    PrintStuff.print(recipe)
+  end
+
+  
 end

@@ -1,3 +1,11 @@
-puts "Eat this:"
-  puts recipes.first['items'].first['label']
-  puts recipes.first['items'].first['url']
+# frozen_string_literal: true
+
+
+module WhatShouldIEat
+    module PrintStuff
+      def self.print(recipe)
+        puts "Eat this:"
+        puts recipe
+      end
+    end
+  end
